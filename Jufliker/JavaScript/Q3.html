@@ -1,0 +1,32 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+    </head>
+    <body>
+    </body>
+    
+    <script>
+        (function() {            
+            function callPompt() {                
+                var name = prompt("Enter your name","");
+                if(confirm(name)){
+                   alert(name);
+                   console.log(name);
+                   document.write(name);
+                }
+                else {
+                   callPompt();
+                }
+                
+            } callPompt();
+        })();
+            
+    </script>
+</html>

@@ -1,0 +1,50 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JavaScript project 1</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+    </body>
+    
+    <script>
+        var form = document.createElement("form");
+        form.method = "post";
+        
+        var label = document.createElement("label").appendChild(document.createTextNode("Name"));
+        form.appendChild(label);
+        var input  = document.createElement("input");
+        input.type = "text";
+        input.name = "name";
+        form.appendChild(input);
+        
+        //Send field
+        var label = document.createElement("label").appendChild(document.createTextNode("Age"));
+        form.appendChild(label);
+        var input  = document.createElement("input");
+        input.type = "text";
+        input.name = "age"
+        form.appendChild(input);
+        
+        //3rd Field
+        var label = document.createElement("label").appendChild(document.createTextNode("Email"));
+        form.appendChild(label);
+        var input  = document.createElement("input");
+        input.type = "email";
+        input.name = "email";
+        form.appendChild(input);
+        
+        var input  = document.createElement("input");
+        input.type = "submit";        
+        input.value = "Submit";
+        form.appendChild(input);
+        
+        
+        document.body.appendChild(form);
+        
+    </script>
+</html>
