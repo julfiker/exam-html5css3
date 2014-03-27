@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CSS exam</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <style>
+            
+            
+            h1, h3, ul, li {
+                padding:0; 
+                margin: 0;
+            }
+            
+            /** first box ***/
+            section hr {border:1px solid #ccc}
+            section {border: 1px solid #ccc}
+            section {
+                overflow: hidden; 
+                padding:5px;
+            }
+            section > aside {float: left;}
+            section > aside article p, section > aside > article header  {width:398px;}
+            section > aside img {width:200px; padding:40px 0px 0px 10px;}
+            section article span {
+                color:#ccc; 
+                font-size: 11px;
+            }
+            section > aside article p {
+                font-family: Arial, Helvetica, sans-serif; 
+                font-size: 12px; 
+                line-height: 18px;
+                
+            }
+            
+            
+            /** Secon box ***/
+            section span {color:#ccc; font-size: 11px;}
+            
+            section ul  li {
+                list-style:circle;
+                font-family: Arial, Helvetica, sans-serif; 
+                font-size: 12px; 
+                line-height: 18px;
+                font-weight: bold;
+            }
+            
+            section ul  li span {color:orangered}
+            
+            /** third section ***/
+            #container {
+                position: relative;
+                width: 350px;
+                color:green;
+                height: 450px;
+                background: green;
+            }
+            
+            #container #horizontal {  
+                position: relative;
+                width:270px;
+                height: 36px;
+                left: 30px;
+                top: 65px;
+                background: red;
+            }
+            
+             #container #vertical {
+                position:absolute;
+                top: 20px;
+                left: 215px;
+                width:36px;
+                height:350px;
+                background:blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div style="width:620px; margin: auto;">
+            <!--First box -->
+            <section>
+                <hr />
+                <aside>
+                <article>
+                    <header>
+                        <span> Form the magazin </span>
+                        <h1> The Cold, hard Lessions of Mobile Home U.  sdf asdf adsf sdaf adsf dsaf adsf  </h1> 
+                        <span>By Julfiker</span>
+                    </header>
+                    <p> 
+                        In the southern california, 
+                        an intensive three-day course teaches students 
+                        how to strike it rich in the tailer-park business.
+                    </p>
+                    <p>
+                        In the southern california, 
+                        an intensive three-day course teaches students 
+                        how to strike it rich in the tailer-park business.                        
+                    </p>
+                    <p>
+                        In the southern california, 
+                        an intensive three-day course teaches students 
+                        how to strike it rich in the tailer-park business.                        
+                    </p>
+                    <footer>
+                        <span> &Var; 94 comments</span>
+                    </footer>
+                </article>                
+                </aside>    
+                <aside>
+                    <img src="./cartoon.jpeg" alt="article image" />
+                </aside>
+            </section>
+            
+            <br /> <br /> <br />
+            <!-- Second box -->
+            <section style="width:350px">
+                <span> More news</span>
+                <ul>
+                    <li>In the southern california, 
+                        an intensive three-day course teaches  <span> 4:00pm </span> 
+                    </li>
+                    <li>In the southern california, 
+                        an intensive three-day  <span> 4:00pm </span>  
+                    </li>
+                    <li>In the southern california, 
+                        an intensive three-day course teaches. <span> 4:00pm </span> 
+                    </li>
+                </ul>
+            </section>
+            
+            
+            <br /> <br /> <br />
+            <!-- Third box -->
+            <div id="container">
+                <div id="horizontal">&nbsp;H</div>
+                <div id="vertical">&nbsp; V</div>
+            </div>
+            
+        </div>
+    </body>
+</html>

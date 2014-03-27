@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript">
+            var myTable = function(obj) {  
+                var row = 0;
+                var column = 0; 
+                var object = obj;
+                
+                this.drawTable = function(r, c) {
+                    row  = r;
+                    column = c;                                       
+                    var table = document.createElement("table");               
+                    table.border = 1;
+                    table.width = "100%";                
+                    addRow(table);                             
+                    object.appendChild(table);
+                };
+                
+                this.drawTableByHtml = function(r,c){
+                    row  = r;
+                    column = c;                                       
+                    var strTable = '<table border="1" width="100%">'; 
+                    for (var i = 0; i < row; i++){
+                        strTable += '<tr>';
+                        for (var j = 0; j < column; j++ ) {
+                            strTable += '<td aling="center">' +"row: "+row+", column: " +column+ '</td>'; 
+                        }
+                        strTable += '</tr>';
+                    } 
+                    strTable += '</table>';
+                                           
+                    object.innerHTML = strTable;
+                };
+                
+                var addRow = function(table){                     
+                    for (var i = 0; i < row; i++){
+                        var tr = document.createElement("tr"); 
+                        addColumn(tr);
+                        table.appendChild(tr);
+                    } 
+                };
+                
+                var addColumn = function (tr){                    
+                    for (var i = 0; i < column; i++ ) {
+                            var td = document.createElement("td");
+                            var text = document.createTextNode("row: "+row+", column: " +column);
+                            td.appendChild(text);
+                            td.align = "center";
+                            tr.appendChild(td);
+                    }
+                  
+                };
+            };
+ 
+        </script>
+    </head>
+    <body>
+        <div id="dynamicTable">
+        </div>
+    </body>
+    
+    <script>        
+        var table = new myTable(document.getElementById("dynamicTable"));   
+        //By generate html on the fly
+        table.drawTable(4, 10);
+        
+        //by htmltag using innerHTML
+        //table.drawTableByHtml(4,4);
+        
+    </script>
+</html>
