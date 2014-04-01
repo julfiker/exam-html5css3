@@ -14,20 +14,22 @@ and open the template in the editor.
     <script>
         var form = document.createElement("form");
         form.method = "post";
+        form.name = "myForm";
         
+        //First Field
         var label = document.createElement("label").appendChild(document.createTextNode("Name"));
         form.appendChild(label);
         var input  = document.createElement("input");
         input.type = "text";
-        input.name = "name";
+        input.name = "Name";
         form.appendChild(input);
         
-        //Send field
+        //Second field
         var label = document.createElement("label").appendChild(document.createTextNode("Age"));
         form.appendChild(label);
         var input  = document.createElement("input");
         input.type = "text";
-        input.name = "age"
+        input.name = "Age"
         form.appendChild(input);
         
         //3rd Field
@@ -35,16 +37,56 @@ and open the template in the editor.
         form.appendChild(label);
         var input  = document.createElement("input");
         input.type = "email";
-        input.name = "email";
+        input.name = "Email";
         form.appendChild(input);
         
         var input  = document.createElement("input");
-        input.type = "submit";        
-        input.value = "Submit";
+        input.type = "button";        
+        input.value = "Save";
+        input.id = "save";
         form.appendChild(input);
-        
-        
         document.body.appendChild(form);
         
+        //add event listener to button
+        var el = document.getElementById("save");
+        el.addEventListener("click", formSubmit, false);
+        
+        var myWindow = "";
+        function formSubmit(){
+            
+            console.log("Open popup");
+            
+            var myPopup = document.createElement("div");
+            myPopup.style = "padding: 10px; border: 1px solid #ccc; width: 300px; height: 200px";
+            
+            var strContent = ""; 
+            
+            var elements = document.myForm.elements;
+            for(var i = 0; i< elements.length-1; i++){                
+                strContent += elements[i].name + " : " + elements[i].value +"<br />";                
+            }
+            
+            myPopup.innerHTML = "<br />" + strContent;
+            
+            myWindow = window.open("","MsgWindow","width=300,height=200");
+            myWindow.document.write(myPopup.innerHTML);
+            
+            var input  = myWindow.document.createElement("input");
+            input.type = "button";        
+            input.value = "Close";
+            input.id = "close";
+            myWindow.document.body.appendChild(input);
+            
+            input.addEventListener("click", closePopup, false);
+ 
+        }
+        
+        function closePopup(){
+           myWindow.close();  
+           form.reset();
+        }
+        
     </script>
+    
+    
 </html>

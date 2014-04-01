@@ -1,0 +1,37 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <div>
+            <form name="myForm" id="myForm">
+                <label> Checkbox 1 <input type="checkbox" name="myCheck" /> </label> <br />
+                <label> Checkbox 2 <input type="checkbox" name="myCheck" /> </label> <br />
+                <label> Checkbox 3 <input type="checkbox" name="myCheck" /> </label> <br />
+                <label> Checkbox 4  <input type="checkbox" name="myCheck" /> </label> <br />
+            </form>
+            
+            <a href="javascript:check(true)" >Check All</a> | <a href="javascript:check(false)" >Un checkAll</a>
+            
+        </div>
+    </body>
+    
+    <script>
+       
+        function check(val) {
+          var checkbox = document.myForm.elements ;          
+          for (var i = 0; i < checkbox.length; i++){
+            if (checkbox[i].type === 'checkbox') {
+                 checkbox[i].checked = val;
+            }
+          }          
+        }        
+        
+    </script>
+</html>

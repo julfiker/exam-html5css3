@@ -1,0 +1,50 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+       
+        <script> 
+              var showElements = function (){
+                  var fieldset = document.getElementsByTagName("fieldset")[0];                   
+                  fieldset.addEventListener("click", showType, false);
+                  alert(fieldset.nodeName);
+                  
+                  var div = document.getElementsByTagName("div")[0];                   
+                  div.addEventListener("click", showType, false);
+                  alert(div.nodeName);
+                  
+                  var span = document.getElementsByTagName("span")[0];                   
+                  span.addEventListener("click", showType, false);
+                  alert(span.nodeName);
+                  
+                  
+                  var button = document.getElementsByTagName("button")[0];                   
+                  button.addEventListener("click", showType, true);
+                  alert(button.nodeName);
+              };
+              
+              function showType(){
+                  alert(this.nodeName);
+              }
+        </script>
+    </head>
+    
+    <body>
+        <fieldset>
+            <div> 
+                <span> 
+                    <button>Click me</button>
+                </span>
+            </div>
+        </fieldset>
+    </body>
+    
+    <script>
+        showElements();
+    </script>
+</html>
