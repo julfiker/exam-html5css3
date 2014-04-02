@@ -12,44 +12,44 @@ and open the template in the editor.
     </body>
     
     <script>
-        var form = document.createElement("form");
-        form.method = "post";
-        form.name = "myForm";
-        
-        //First Field
-        var label = document.createElement("label").appendChild(document.createTextNode("Name"));
-        form.appendChild(label);
-        var input  = document.createElement("input");
-        input.type = "text";
-        input.name = "Name";
-        form.appendChild(input);
-        
-        //Second field
-        var label = document.createElement("label").appendChild(document.createTextNode("Age"));
-        form.appendChild(label);
-        var input  = document.createElement("input");
-        input.type = "text";
-        input.name = "Age"
-        form.appendChild(input);
-        
-        //3rd Field
-        var label = document.createElement("label").appendChild(document.createTextNode("Email"));
-        form.appendChild(label);
-        var input  = document.createElement("input");
-        input.type = "email";
-        input.name = "Email";
-        form.appendChild(input);
-        
-        var input  = document.createElement("input");
-        input.type = "button";        
-        input.value = "Save";
-        input.id = "save";
-        form.appendChild(input);
-        document.body.appendChild(form);
-        
-        //add event listener to button
-        var el = document.getElementById("save");
-        el.addEventListener("click", formSubmit, false);
+        var form = "";
+        function initForm() {
+            form = document.createElement("form");
+            form.method = "post";
+            form.name = "myForm";
+
+            //First Field
+            var label = document.createElement("label").appendChild(document.createTextNode("Name"));
+            form.appendChild(label);
+            var input  = document.createElement("input");
+            input.type = "text";
+            input.name = "Name";
+            form.appendChild(input);
+
+            //Second field
+            var label = document.createElement("label").appendChild(document.createTextNode("Age"));
+            form.appendChild(label);
+            var input  = document.createElement("input");
+            input.type = "text";
+            input.name = "Age"
+            form.appendChild(input);
+
+            //3rd Field
+            var label = document.createElement("label").appendChild(document.createTextNode("Email"));
+            form.appendChild(label);
+            var input  = document.createElement("input");
+            input.type = "email";
+            input.name = "Email";
+            form.appendChild(input);
+
+            var input  = document.createElement("input");
+            input.type = "button";        
+            input.value = "Save";
+            input.id = "save";
+            input.addEventListener("click", formSubmit, false)
+            form.appendChild(input);
+            document.body.appendChild(form);    
+        }
         
         var myWindow = "";
         function formSubmit(){
@@ -75,10 +75,9 @@ and open the template in the editor.
             input.type = "button";        
             input.value = "Close";
             input.id = "close";
-            myWindow.document.body.appendChild(input);
-            
             input.addEventListener("click", closePopup, false);
- 
+            myWindow.document.body.appendChild(input);
+           
         }
         
         function closePopup(){
@@ -86,6 +85,7 @@ and open the template in the editor.
            form.reset();
         }
         
+        window.onload = initForm;
     </script>
     
     

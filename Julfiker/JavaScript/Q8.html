@@ -7,8 +7,58 @@ and open the template in the editor.
     <head>
         <title></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script>
+         
+          function xmlhttpPost(strURL) {
+                //var data_file = strURL;
+                var http_request = new XMLHttpRequest();
+                try{
+                   // Opera 8.0+, Firefox, Chrome, Safari
+                   http_request = new XMLHttpRequest();
+                }catch (e){
+                   // Internet Explorer Browsers
+                   try{
+                      http_request = new ActiveXObject("Msxml2.XMLHTTP");
+                   }catch (e) {
+                      try{
+                         http_request = new ActiveXObject("Microsoft.XMLHTTP");
+                      }catch (e){
+                         // Something went wrong
+                         alert("Your browser broke!");
+                         return false;
+                      }
+                   }
+                }
+
+                http_request.onreadystatechange  = function(){
+                   if (http_request.readyState === 4  )
+                   {
+                     var responseText = http_request.responseText;
+                     
+                     // Javascript function JSON.parse to parse JSON data
+                     var jsonObj = eval(JSON.parse(JSON.stringify(http_request.responseText)));
+                     
+                     //alert(eval(jsonObj));
+                     var optStr = "";
+                     for (var i =0; i < jsonObj.length; i++){
+                         optStr += "<option>"+ jsonObj[i].name +"</option>";
+                     }
+                     document.getElementById("country").innerHTML =  optStr;
+                   }
+                };
+                http_request.open("POST", strURL, true);
+                //http_request.setRequestHeader('Content-Type', 'application/json')
+                http_request.send();
+            }
+            
+            window.onload = xmlhttpPost("./countries.json");
+        </script>
     </head>
     <body>
-        <div>TODO write content</div>
+        <div id="dataList">Country :
+            <select id="country"> 
+                <option> Loading.. </option>
+            </select>
+        </div>
     </body>
 </html>

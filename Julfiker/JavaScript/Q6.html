@@ -11,15 +11,15 @@ and open the template in the editor.
         <script> 
               var showElements = function (){
                   var fieldset = document.getElementsByTagName("fieldset")[0];                   
-                  fieldset.addEventListener("click", showType, false);
+                  fieldset.addEventListener("click", showType, true);
                   alert(fieldset.nodeName);
                   
                   var div = document.getElementsByTagName("div")[0];                   
-                  div.addEventListener("click", showType, false);
+                  div.addEventListener("click", showType, true);
                   alert(div.nodeName);
                   
                   var span = document.getElementsByTagName("span")[0];                   
-                  span.addEventListener("click", showType, false);
+                  span.addEventListener("click", showType, true);
                   alert(span.nodeName);
                   
                   
@@ -45,6 +45,6 @@ and open the template in the editor.
     </body>
     
     <script>
-        showElements();
+        window.onload = showElements;
     </script>
 </html>
